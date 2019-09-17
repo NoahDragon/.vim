@@ -1,5 +1,7 @@
 " Set compatibility to Vim only
 set nocompatible
+set exrc
+set secure
 
 if has("win32") " including 64bits
 	call plug#begin('~/vimfiles/plugged')
@@ -23,6 +25,9 @@ Plug 'tpope/vim-repeat'
 Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'mhinz/vim-grepper'
+Plug 'universal-ctags/ctags'
+Plug 'ludovicchabant/vim-gutentags'
 " Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -40,7 +45,7 @@ nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
-let g:ctrlp_map='<c-p>'
+let g:ctrlp_map='<C-p>'
 let g:ctrlp_cmd='CtrlP'
 
 map <F8> :NERDTreeToggle<CR>
@@ -60,6 +65,13 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" Set project root for gutentags
+let g:gutentags_modules=['ctags']
+let g:gutentags_project_root=['Makefile']
+let g:gutentags_cache_dir=expand('~/.cache/tags')
+let g:gutentags_plus_switch=1
+set statusline+=%{gutentags#statusline()}
 "
 " End Plugin Configurations
 "
@@ -75,6 +87,8 @@ set cursorline
 set showmatch
 set paste
 set wrap
+set hidden
+set confirm
 " GVIM settings
 set guioptions-=m " remove menu bar
 set guioptions-=T " remove toolbar
