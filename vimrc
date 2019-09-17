@@ -26,8 +26,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-grepper'
-Plug 'universal-ctags/ctags'
-Plug 'ludovicchabant/vim-gutentags'
 " Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -66,12 +64,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" Set project root for gutentags
-let g:gutentags_modules=['ctags']
-let g:gutentags_project_root=['Makefile']
-let g:gutentags_cache_dir=expand('~/.cache/tags')
-let g:gutentags_plus_switch=1
-set statusline+=%{gutentags#statusline()}
 "
 " End Plugin Configurations
 "
@@ -89,6 +81,8 @@ set paste
 set wrap
 set hidden
 set confirm
+set ignorecase
+set autochdir
 " GVIM settings
 set guioptions-=m " remove menu bar
 set guioptions-=T " remove toolbar
@@ -100,6 +94,9 @@ au GUIEnter * simalt ~x " Maximize gVIM on startup
 set laststatus=2
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 "set statusline=%F%m%r%h%w\ [F=%{&ff}]\ [T=%Y]\ [P=%l,%v][%p%%]\ [B=%n]\ %{strftime('%c')}
+
+" CTags
+set tags=tags;/
 
 " Map the <SPC> key to toggle a selected fold opened/closed.
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
