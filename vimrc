@@ -42,7 +42,7 @@ call plug#end()
 "
 " Plugin Configurations
 "
-color dracula
+colorscheme dracula
 " colorscheme gruvbox
 " set background=dark
 "
@@ -129,6 +129,7 @@ if has("gui_running")
 	set guioptions-=T " remove toolbar
 	set guioptions-=r " remove right-hand scroll bar
 	set guioptions-=L " remove left-hand scroll bar
+	set guifont=Consolas:h14 " fix italics letter crop issue
 	au GUIEnter * simalt ~x " Maximize gVIM on startup
 endif
 
