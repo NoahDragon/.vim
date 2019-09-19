@@ -5,6 +5,8 @@ set secure
 
 if has("win32") " including 64bits
 	call plug#begin('~/vimfiles/plugged')
+	"  Manually installed Plugins
+    Plug '~/vimfiles/plugged/YouCompleteMe'
 else
 	if empty(glob('~/.vim/autoload/plug.vim'))
 		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -12,9 +14,11 @@ else
 		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 	endif
 	call plug#begin('~/.vim/plugged')
+    Plug '~/.vim/plugged/YouCompleteMe'
 endif
 
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', {'as':'dracula'}
 Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
@@ -28,22 +32,28 @@ Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-grepper'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale'
+Plug 'jiangmiao/auto-pairs'
 " Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
 "
 " Plugin Configurations
 "
-colorscheme gruvbox
-set background=dark
-" Inverrts cursor color for gruvbox
-nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
-nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
-nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
-
-nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
-nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
-nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+color dracula
+" colorscheme gruvbox
+" set background=dark
+"
+" " Inverrts cursor color for gruvbox
+" nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
+" nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
+" nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
+"
+" nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
+" nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
+" nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 let g:ctrlp_map='<C-p>'
 let g:ctrlp_cmd='CtrlP'
@@ -91,6 +101,8 @@ hi ReduxKeywords ctermfg=204 guifg=#C678DD
 hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
 hi WebBrowser ctermfg=204 guifg=#56B6C2
 hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+" Editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 "
 " End Plugin Configurations
 "
@@ -109,14 +121,16 @@ set paste
 set wrap
 set hidden
 set confirm
-set smartcase
+set ignorecase
 set autochdir
 " GVIM settings
-set guioptions-=m " remove menu bar
-set guioptions-=T " remove toolbar
-set guioptions-=r " remove right-hand scroll bar
-set guioptions-=L " remove left-hand scroll bar
-au GUIEnter * simalt ~x " Maximize gVIM on startup
+if has("gui_running")
+	set guioptions-=m " remove menu bar
+	set guioptions-=T " remove toolbar
+	set guioptions-=r " remove right-hand scroll bar
+	set guioptions-=L " remove left-hand scroll bar
+	au GUIEnter * simalt ~x " Maximize gVIM on startup
+endif
 
 " Set status line display
 set laststatus=2
