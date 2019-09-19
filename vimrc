@@ -19,7 +19,9 @@ endif
 
 " Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', {'as':'dracula'}
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
@@ -55,8 +57,13 @@ colorscheme dracula
 " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
+" vim-airline
+let g:airline#extensions#tabline#enabled=1
+
 let g:ctrlp_map='<C-p>'
-let g:ctrlp_cmd='CtrlP'
+let g:ctrlp_cmd='CtrlPBuffer'
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_root_markers=['Makefile', 'p4config']
 
 map <F8> :NERDTreeToggle<CR>
 
@@ -129,7 +136,7 @@ if has("gui_running")
 	set guioptions-=T " remove toolbar
 	set guioptions-=r " remove right-hand scroll bar
 	set guioptions-=L " remove left-hand scroll bar
-	set guifont=Consolas:h14 " fix italics letter crop issue
+	set guifont=Consolas:h12 " fix italics letter crop issue
 	au GUIEnter * simalt ~x " Maximize gVIM on startup
 endif
 
