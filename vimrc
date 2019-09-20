@@ -20,7 +20,7 @@ endif
 " Plug 'morhetz/gruvbox'
 Plug 'dracula/vim', {'as':'dracula'}
 " Plug 'itchyny/lightline.vim'
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline' " Have some perfomrance issues
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
@@ -60,6 +60,8 @@ colorscheme dracula
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " vim-airline
+let g:airline_powerline_fonts=1
+let g:airline_highlighting_cache=1
 let g:airline#extensions#tabline#enabled=1
 
 let g:ctrlp_map='<C-p>'
@@ -115,6 +117,9 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
 " Indent Guides
 let g:indent_guides_enable_on_vim_startup=1
 set ts=4 sw=4 noet
+" ALE
+let g:ale_enabled=0 " vim-plug may cause ALE commands malfunction
+let g:airline#extensions#ale#enabled=1
 "
 " End Plugin Configurations
 "
