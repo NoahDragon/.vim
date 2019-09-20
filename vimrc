@@ -32,12 +32,14 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-grepper'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'peitalin/vim-jsx-typescript'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'dense-analysis/ale'
 Plug 'jiangmiao/auto-pairs'
+Plug 'sheerun/vim-polyglot'
+Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'scrooloose/nerdcommenter'
 
 call plug#end()
@@ -83,33 +85,36 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" set filetypes as typescript.tsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-" dark red
-hi tsxTagName guifg=#E06C75
-
-" orange
-hi tsxCloseString guifg=#F99575
-hi tsxCloseTag guifg=#F99575
-hi tsxAttributeBraces guifg=#F99575
-hi tsxEqual guifg=#F99575
-
-" yellow
-hi tsxAttrib guifg=#F8BD7F cterm=italic
-" light-grey
-hi tsxTypeBraces guifg=#999999
-" dark-grey
-hi tsxTypes guifg=#666666
-hi ReactState guifg=#C176A7
-hi ReactProps guifg=#D19A66
-hi ApolloGraphQL guifg=#CB886B
-hi Events ctermfg=204 guifg=#56B6C2
-hi ReduxKeywords ctermfg=204 guifg=#C678DD
-hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
-hi WebBrowser ctermfg=204 guifg=#56B6C2
-hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
+" " set filetypes as typescript.tsx
+" autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+" " dark red
+" hi tsxTagName guifg=#E06C75
+"
+" " orange
+" hi tsxCloseString guifg=#F99575
+" hi tsxCloseTag guifg=#F99575
+" hi tsxAttributeBraces guifg=#F99575
+" hi tsxEqual guifg=#F99575
+"
+" " yellow
+" hi tsxAttrib guifg=#F8BD7F cterm=italic
+" " light-grey
+" hi tsxTypeBraces guifg=#999999
+" " dark-grey
+" hi tsxTypes guifg=#666666
+" hi ReactState guifg=#C176A7
+" hi ReactProps guifg=#D19A66
+" hi ApolloGraphQL guifg=#CB886B
+" hi Events ctermfg=204 guifg=#56B6C2
+" hi ReduxKeywords ctermfg=204 guifg=#C678DD
+" hi ReduxHooksKeywords ctermfg=204 guifg=#C176A7
+" hi WebBrowser ctermfg=204 guifg=#56B6C2
+" hi ReactLifeCycleMethods ctermfg=204 guifg=#D19A66
 " Editorconfig
 let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup=1
+set ts=4 sw=4 noet
 "
 " End Plugin Configurations
 "
@@ -128,7 +133,9 @@ set paste
 set wrap
 set hidden
 set confirm
-set ignorecase
+set hlsearch " hls
+set incsearch " is
+set ignorecase " ic
 set autochdir
 " GVIM settings
 if has("gui_running")
