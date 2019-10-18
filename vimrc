@@ -60,7 +60,7 @@ colorscheme dracula
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 " vim-airline
-let g:airline_powerline_fonts=1
+" let g:airline_powerline_fonts=1
 let g:airline_highlighting_cache=1
 let g:airline#extensions#tabline#enabled=1
 
@@ -131,7 +131,7 @@ set encoding=utf-8
 syntax on 
 autocmd BufEnter * :syntax sync fromstart
 
-set number
+set relativenumber
 set cursorline
 set showmatch
 set paste
@@ -142,6 +142,7 @@ set hlsearch " hls
 set incsearch " is
 set ignorecase " ic
 set autochdir
+set clipboard^=unnamed,unnamedplus
 " GVIM settings
 if has("gui_running")
 	set guioptions-=m " remove menu bar
@@ -178,6 +179,10 @@ set autoindent
 
 " Fix backspace
 set bs=2
+
+" Remapping Escape
+inoremap kj <Esc>
+inoremap jk <Esc>
 
 " autocmd BufWritePost $MYVIMRC source $MYVIMRC " Auto apply new change when save, but really slow on windows.
 
