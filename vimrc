@@ -41,6 +41,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'sheerun/vim-polyglot'
 Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'scrooloose/nerdcommenter'
+Plug 'CoatiSoftware/vim-sourcetrail'
 
 call plug#end()
 "
