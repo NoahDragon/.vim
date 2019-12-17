@@ -59,6 +59,9 @@ colorscheme dracula
 " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+" Change leader key to space
+" nnoremap <Space> <Nop>
+let mapleader=" "
 
 " vim-airline
 " let g:airline_powerline_fonts=1
@@ -170,9 +173,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-" Change leader key to space
-" nnoremap <Space> <Nop>
-let mapleader=","
 
 set tabstop=4
 set shiftwidth=4
