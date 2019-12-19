@@ -60,7 +60,6 @@ colorscheme dracula
 " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 " Change leader key to space
-" nnoremap <Space> <Nop>
 let mapleader=" "
 
 " vim-airline
