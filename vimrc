@@ -9,7 +9,7 @@ if has("win32") " including 64bits
 	set undodir="C:\TEMP"
 	call plug#begin('~/vimfiles/plugged')
 	"  Manually installed Plugins
-    Plug '~/vimfiles/plugged/YouCompleteMe'
+    Plug '~/vimfiles/YouCompleteMe'
 else
 	set backupdir="/tmp//"
 	set directory="/tmp//"
@@ -20,7 +20,7 @@ else
 		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 	endif
 	call plug#begin('~/.vim/plugged')
-    Plug '~/.vim/plugged/YouCompleteMe'
+    Plug '~/.vim/YouCompleteMe'
 endif
 
 " Plug 'morhetz/gruvbox'

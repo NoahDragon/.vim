@@ -1,0 +1,4 @@
+[submodule "YouCompleteMe"]
+	path = YouCompleteMe
+	url = https://github.com/ycm-core/YouCompleteMe.git
+	branch = master
