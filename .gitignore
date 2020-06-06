@@ -1,5 +1,6 @@
 # VIM-Plug
 plugged/
+!plugged/YouCompleteMe
 
 # Swap
 [._]*.s[a-v][a-z]
