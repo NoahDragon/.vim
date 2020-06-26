@@ -4,10 +4,16 @@ set exrc
 set secure
 
 if has("win32") " including 64bits
+	set backupdir="C:\TEMP"
+	set directory="C:\TEMP"
+	set undodir="C:\TEMP"
 	call plug#begin('~/vimfiles/plugged')
 	"  Manually installed Plugins
     Plug '~/vimfiles/plugged/YouCompleteMe'
 else
+	set backupdir="/tmp//"
+	set directory="/tmp//"
+	set undodir="tmp//"
 	if empty(glob('~/.vim/autoload/plug.vim'))
 		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 			\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
