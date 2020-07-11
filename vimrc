@@ -21,6 +21,7 @@ else
 	endif
 	call plug#begin('~/.vim/plugged')
     Plug '~/.vim/YouCompleteMe'
+	Plug 'christoomey/vim-tmux-navigator'
 endif
 
 " Plug 'morhetz/gruvbox'
